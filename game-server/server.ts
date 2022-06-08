@@ -25,7 +25,7 @@ const shutdown = (signal: string) => () => {
 
 process.on('SIGINT', shutdown('SIGINT'));
 process.on('SIGTERM', shutdown('SIGTERM'));
-app.get('/', (request: any, response: any) => {
+app.get('/shutdown', (request: any, response: any) => {
 	response.send('Shutting down...\n');
 	shutdown('Shutdown request');
 });
