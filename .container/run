@@ -23,6 +23,23 @@ tar -zxf "$PNPM_TARBALL" --strip-components=1 package/pnpm
 unlink "$PNPM_TARBALL"
 chmod +x pnpm
 mkdir .pnpm-store
-#./pnpm install --store-dir=.pnpm-store/
+for dir in shared auth-server game-server game-server-web ; do
+	pushd "$dir"/
+	../pnpm --store-dir=../.pnpm-store/ install
+	popd
+done
+for dir in shared auth-server game-server game-server-web ; do
+	pushd "$dir"/
+	../pnpm --store-dir=../.pnpm-store/ exec tsc --build
+	popd
+done
+for dir in shared auth-server game-server game-server-web ; do
+	if ! [ -f dist/"$dir"/package.json ] ; then
+		cp "$dir"/package.json dist/"$dir"/
+	fi
+	pushd dist/"$dir"/
+	../pnpm --store-dir=../.pnpm-store/ install --production
+	popd
+done
 { env | grep -E '^[^_][a-z0-9_]*=' | sort ; date -u +timestamp_end=%s.%N ; } > .container/deployment.ini
 rm -f "$0"

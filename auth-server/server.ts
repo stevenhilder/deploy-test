@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
-const deployment_ini = fs.readFileSync(path.resolve(__dirname, '..', '.container', 'deployment.ini'), 'utf8');
+const deployment_ini: string = fs.readFileSync(path.resolve(__dirname, '..', '..', '.container', 'deployment.ini'), 'utf8');
 
 app.get('/', (_, response) => void response.send('Hello, World!\n\n' + deployment_ini));
 

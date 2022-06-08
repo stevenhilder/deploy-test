@@ -1,0 +1,18 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "../dist/game-server",
+		"rootDir": ".",
+		"allowUmdGlobalAccess": true
+	},
+	"references": [
+		{
+			"path": "../shared/"
+		}
+	],
+	"include": [
+		"**/*",
+		"randomnames.txt",
+		"package.json"
+	]
+}
