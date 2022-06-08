@@ -23,6 +23,6 @@ tar -zxf "$PNPM_TARBALL" --strip-components=1 package/pnpm
 unlink "$PNPM_TARBALL"
 chmod +x pnpm
 mkdir .pnpm-store
-./pnpm install --store-dir=.pnpm-store/
+#./pnpm install --store-dir=.pnpm-store/
 { env | grep -E '^[^_][a-z0-9_]*=' | sort ; date -u +timestamp_end=%s.%N ; } > .container/deployment.ini
 rm -f "$0"
