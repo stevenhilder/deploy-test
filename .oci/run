@@ -43,7 +43,5 @@ for dir in shared auth-server game-server game-server-web ; do
 	../../pnpm --store-dir=../.pnpm-store/ install --production
 	popd
 done
-pushd .oci/
-nvm run generate-deployment-info.js
-popd
+nvm run .oci/generate-deployment-info.js
 rm -f "$0"
