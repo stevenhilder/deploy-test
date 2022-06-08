@@ -1,5 +1,22 @@
 FROM docker.io/library/ubuntu:18.04
 COPY . /srv/
-RUN [ "/srv/.container/container-build" ]
-ENTRYPOINT [ "/srv/.container/entrypoint" ]
+ARG buildah_version
+ARG ecr_registry_region
+ARG ecr_registry_uri
+ARG git_repository_name
+ARG git_tag
+ARG github_account_name
+ARG hostname
+ARG image_name
+ARG system_distribution
+ARG system_kernel_name
+ARG system_kernel_release
+ARG system_kernel_version
+ARG system_machine_architecture
+ARG system_operating_system
+ARG timestamp
+ARG user
+ARG uuid
+RUN [ "/srv/.container/run" ]
 EXPOSE 8080/tcp
+ENTRYPOINT [ "/srv/.container/entrypoint" ]

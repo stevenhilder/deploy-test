@@ -1,8 +1,12 @@
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
 const app = express();
 const port = 8080;
 
-app.get('/', (_, response) => void response.send('Hello, World!\n'));
+const deployment_ini = fs.readFileSync(path.resolve(__dirname, '..', '.container', 'deployment.ini'), 'utf8');
+
+app.get('/', (_, response) => void response.send('Hello, World!\n\n' + deployment_ini));
 
 const server = app.listen(port, () => {
 	process.stderr.write(`HTTP server listening on port ${ port }...\n`);

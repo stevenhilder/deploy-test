@@ -6,10 +6,10 @@ NVM_VERSION=0.39.1
 NODE_VERSION=12.22.12
 PNPM_VERSION=7.1.8
 
-PROJECT_ROOT="$( dirname "$0" )"
+PROJECT_ROOT="$( realpath "$( dirname "$0" )"/../ )"
 cd "$PROJECT_ROOT"/
 apt-get -y update
-apt-get -y install curl tar
+apt-get -y install curl
 apt autoremove -y
 curl -fLSs https://raw.githubusercontent.com/nvm-sh/nvm/v"$NVM_VERSION"/install.sh | bash -
 source "$HOME"/.nvm/nvm.sh
@@ -24,4 +24,5 @@ unlink "$PNPM_TARBALL"
 chmod +x pnpm
 mkdir .pnpm-store
 ./pnpm install --store-dir=.pnpm-store/
+{ env | grep -E '^[^_][a-z0-9_]*=' | sort ; date -u +timestamp_end=%s.%N ; } > .container/deployment.ini
 rm -f "$0"
