@@ -15,7 +15,7 @@ cd "$PROJECT_ROOT"/
 echo
 echo
 echo
-find . -type f -exec ls -la {} +
+find "$PROJECT_ROOT" -type f -exec ls -la {} +
 echo
 echo
 echo
