@@ -1,13 +1,23 @@
 FROM docker.io/library/ubuntu:18.04
 WORKDIR .oci/
 COPY ../ /srv/
+ARG buildah_version_base64
+ARG distribution
 ARG ecr_registry_region
 ARG ecr_registry_uri
 ARG git_repository_name
 ARG git_tag
-ARG github_account_name
+ARG github_owner_name
+ARG hostname
 ARG image_name
+ARG kernel_name
+ARG kernel_release
+ARG kernel_version
+ARG mac_address
+ARG machine_architecture
+ARG operating_system
 ARG timestamp_start
+ARG user
 ARG uuid
 RUN [ "/srv/.oci/run" ]
 EXPOSE 80/tcp
