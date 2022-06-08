@@ -1,0 +1,5 @@
+FROM docker.io/library/ubuntu:18.04
+COPY . /srv/
+RUN [ "/srv/.container/container-build" ]
+ENTRYPOINT [ "/srv/.container/entrypoint" ]
+EXPOSE 8080/tcp

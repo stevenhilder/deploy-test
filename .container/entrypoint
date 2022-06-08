@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+source "$HOME"/.nvm/nvm.sh
+cd /srv/
+nvm run /srv/src/server.js

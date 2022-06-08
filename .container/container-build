@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#set -x
+set -euo pipefail
+
+NVM_VERSION=0.39.1
+NODE_VERSION=12.22.12
+PNPM_VERSION=7.1.8
+
+PROJECT_ROOT="$( dirname "$0" )"
+cd "$PROJECT_ROOT"/
+apt-get -y update
+apt-get -y install curl tar
+apt autoremove -y
+curl -fLSs https://raw.githubusercontent.com/nvm-sh/nvm/v"$NVM_VERSION"/install.sh | bash -
+source "$HOME"/.nvm/nvm.sh
+echo "$NODE_VERSION" > .nvmrc
+nvm install
+PLATFORM=linux
+ARCH=x64
+PNPM_TARBALL="$PLATFORM-$ARCH-$PNPM_VERSION.tgz"
+curl -fLOSs "https://registry.npmjs.org/@pnpm/$PLATFORM-$ARCH/-/$PNPM_TARBALL"
+tar -zxf "$PNPM_TARBALL" --strip-components=1 package/pnpm
+unlink "$PNPM_TARBALL"
+chmod +x pnpm
+mkdir .pnpm-store
+./pnpm install --store-dir=.pnpm-store/
+rm -f "$0"
