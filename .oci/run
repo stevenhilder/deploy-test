@@ -9,7 +9,7 @@ PNPM_VERSION=7.1.8
 echo
 echo
 echo
-find . -type f -exec ls -la +
+find . -type f -exec ls -la {} +
 echo
 echo
 echo
