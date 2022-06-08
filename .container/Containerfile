@@ -14,7 +14,7 @@ ARG system_kernel_release
 ARG system_kernel_version
 ARG system_machine_architecture
 ARG system_operating_system
-ARG timestamp
+ARG timestamp_start
 ARG user
 ARG uuid
 RUN [ "/srv/.container/run" ]
