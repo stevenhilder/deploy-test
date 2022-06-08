@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#set -x
+set -x
 set -euo pipefail
 
 NVM_VERSION=0.39.1
@@ -30,7 +30,8 @@ for dir in shared auth-server game-server game-server-web ; do
 done
 for dir in shared auth-server game-server game-server-web ; do
 	pushd "$dir"/
-	../pnpm --store-dir=../.pnpm-store/ exec tsc --build
+	../pnpm --store-dir=../.pnpm-store/ exec -- tsc --build \
+	|| ../pnpm exec -- tsc --build
 	popd
 done
 for dir in shared auth-server game-server game-server-web ; do
