@@ -6,7 +6,9 @@ const port: number = 8080;
 
 const deployment_ini: string = fs.readFileSync(path.resolve(__dirname, '..', '..', '.container', 'deployment.ini'), 'utf8');
 
-app.get('/', (request: any, response: any) => void response.send('Hello, World!\n\n' + deployment_ini));
+app.get('/', (request: any, response: any) => {
+	response.send(`Hello, World!\n\n${ deployment_ini }`);
+});
 
 const server = app.listen(port, () => {
 	process.stderr.write(`HTTP server listening on port ${ port }...\n`);
@@ -23,7 +25,7 @@ const shutdown = (signal: string) => () => {
 
 process.on('SIGINT', shutdown('SIGINT'));
 process.on('SIGTERM', shutdown('SIGTERM'));
-app.get('/shutdown', () => {
+app.get('/', (request: any, response: any) => {
 	response.send('Shutting down...\n');
 	shutdown('Shutdown request');
 });
