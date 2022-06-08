@@ -1,3 +1,5 @@
+/.oci/deployment-info.json
 /dist/
 /node_modules/
 *.js
+!/.oci/

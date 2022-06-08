@@ -45,5 +45,7 @@ for dir in shared auth-server game-server game-server-web ; do
 	../../pnpm --store-dir=../.pnpm-store/ install --production
 	popd
 done
-{ env | grep -E '^[^_][a-z0-9_]*=' | sort ; date -u +timestamp_end=%s.%N ; } > .container/deployment.ini
+pushd .oci/
+nvm run generate-deployment-info.js
+popd
 rm -f "$0"

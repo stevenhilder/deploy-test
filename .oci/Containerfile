@@ -1,0 +1,14 @@
+FROM docker.io/library/ubuntu:18.04
+WORKDIR .oci/
+COPY ../ /srv/
+ARG ecr_registry_region
+ARG ecr_registry_uri
+ARG git_repository_name
+ARG git_tag
+ARG github_account_name
+ARG image_name
+ARG timestamp_start
+ARG uuid
+RUN [ "/srv/.oci/run" ]
+EXPOSE 80/tcp
+ENTRYPOINT [ "/srv/.oci/entrypoint" ]
