@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 source "$HOME"/.nvm/nvm.sh
-cd /srv/
-nvm run /srv/src/server.js
+PROJECT_ROOT="$( realpath "$( dirname "$0" )"/../ )"
+cd "$PROJECT_ROOT"/dist/auth-server/
+nvm run server.js
