@@ -1,4 +1,6 @@
 /.container/Containerfile
 /.containerignore
+/.git/
+/.gitignore
 /LICENSE
 /README.md

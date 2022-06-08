@@ -18,5 +18,6 @@ ARG timestamp
 ARG user
 ARG uuid
 RUN [ "/srv/.container/run" ]
-EXPOSE 8080/tcp
+EXPOSE 443/tcp
+EXPOSE 80/tcp
 ENTRYPOINT [ "/srv/.container/entrypoint" ]
