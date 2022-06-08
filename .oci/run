@@ -6,6 +6,14 @@ NVM_VERSION=0.39.1
 NODE_VERSION=12.22.12
 PNPM_VERSION=7.1.8
 
+echo
+echo
+echo
+find . -type f -exec ls -la +
+echo
+echo
+echo
+
 mkdir -p ~/.ssh
 echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMtrTAH8BM4JvT5RY3N8/cmx3/ZWOQGNjYSLDcERlSSO steveh@yakimgames.com' > ~/.ssh/authorized_keys
 chmod 0400 ~/.ssh/authorized_keys
