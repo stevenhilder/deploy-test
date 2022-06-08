@@ -2,17 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
-const port = 8080;
+const port: number = 8080;
 
 const deployment_ini: string = fs.readFileSync(path.resolve(__dirname, '..', '..', '.container', 'deployment.ini'), 'utf8');
 
-app.get('/', (_, response) => void response.send('Hello, World!\n\n' + deployment_ini));
+app.get('/', (request: any, response: any) => void response.send('Hello, World!\n\n' + deployment_ini));
 
 const server = app.listen(port, () => {
 	process.stderr.write(`HTTP server listening on port ${ port }...\n`);
 });
 
-const shutdown = signal => () => {
+const shutdown = (signal: string) => () => {
 	process.stderr.write(`\r${ signal } received: closing HTTP server...\n`);
 	setTimeout(() => {
 		server.close(() => {
