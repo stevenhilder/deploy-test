@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
-const port: number = 8080;
+const port: number = 80;
 
 const deployment_ini: string = fs.readFileSync(path.resolve(__dirname, '..', '..', '.container', 'deployment.ini'), 'utf8');
 
