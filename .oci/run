@@ -12,13 +12,6 @@ chmod 0400 ~/.ssh/authorized_keys
 chmod 0500 ~/.ssh/
 PROJECT_ROOT="$( realpath "$( dirname "$0" )"/../ )"
 cd "$PROJECT_ROOT"/
-echo
-echo
-echo
-find "$PROJECT_ROOT" -type f -exec ls -la {} +
-echo
-echo
-echo
 apt-get -y update
 apt-get -y install curl openssh-server
 apt autoremove -y
@@ -45,9 +38,7 @@ for dir in shared auth-server game-server game-server-web ; do
 	popd
 done
 for dir in shared auth-server game-server game-server-web ; do
-	if ! [ -f dist/"$dir"/package.json ] ; then
-		cp "$dir"/package.json dist/"$dir"/
-	fi
+	cp "$dir"/package.json dist/"$dir"/
 	pushd dist/"$dir"/
 	../../pnpm --store-dir=../.pnpm-store/ install --production
 	popd
