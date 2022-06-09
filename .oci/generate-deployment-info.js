@@ -1,6 +1,6 @@
-const child_process = require('node:child_process');
-const fs = require('node:fs');
-const path = require('node:path');
+const child_process = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 const start = process.env.timestamp_start;
 const end = child_process.execFileSync('date', [ '-u', '+%s.%N' ]).toString('ascii').trimEnd();
