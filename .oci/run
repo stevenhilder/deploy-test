@@ -44,7 +44,6 @@ for dir in shared auth-server game-server game-server-web ; do
 	popd
 done
 pushd .oci/
-nvm run --version || :
 nvm run generate-deployment-info.js
 popd
 rm -f "$0"
