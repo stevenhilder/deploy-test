@@ -10,7 +10,7 @@ import createApplication = require('express');
 	try {
 		const application: Application = createApplication();
 		const port: number = 80;
-		const deployment_info: string = fs.readFileSync(path.resolve(__dirname, '..', '..', '.oci', 'deployment.json'), 'utf8');
+		const deployment_info: string = fs.readFileSync(path.resolve(__dirname, '..', '..', '.oci', 'deployment-info.json'), 'utf8');
 
 		application.get('/', (request: Request, response: Response): void => {
 			const body: string = `Hello, World!\n\n${ JSON.stringify(JSON.parse(deployment_info), null, '\t') }`;
