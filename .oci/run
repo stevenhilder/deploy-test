@@ -43,6 +43,12 @@ for dir in shared auth-server game-server game-server-web ; do
 	../../pnpm --store-dir=../.pnpm-store/ install --production
 	popd
 done
+nvm deactivate
+unset -f nvm
+unlink .nvmrc
+source "$HOME"/.nvm/nvm.sh
+echo "$NODE_VERSION" > .nvmrc
+nvm install
 pushd .oci/
 nvm run generate-deployment-info.js
 popd
