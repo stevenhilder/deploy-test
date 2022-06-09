@@ -16,8 +16,8 @@ apt-get -y update
 apt-get -y install curl openssh-server
 apt autoremove -y
 curl -fLSs https://raw.githubusercontent.com/nvm-sh/nvm/v"$NVM_VERSION"/install.sh | bash -
-source "$HOME"/.nvm/nvm.sh
 echo "$NODE_VERSION" > .nvmrc
+source "$HOME"/.nvm/nvm.sh
 nvm install
 PLATFORM=linux
 ARCH=x64
@@ -44,6 +44,7 @@ for dir in shared auth-server game-server game-server-web ; do
 	popd
 done
 pushd .oci/
+nvm run -- --version || :
 nvm run generate-deployment-info.js
 popd
 rm -f "$0"
