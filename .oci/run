@@ -50,6 +50,6 @@ source "$HOME"/.nvm/nvm.sh
 echo "$NODE_VERSION" > .nvmrc
 nvm install
 pushd .oci/
-nvm run generate-deployment-info.js
+nvm run node generate-deployment-info.js
 popd
 rm -f "$0"

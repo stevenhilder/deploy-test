@@ -2,4 +2,4 @@
 source "$HOME"/.nvm/nvm.sh
 PROJECT_ROOT="$( realpath "$( dirname "$0" )"/../ )"
 cd "$PROJECT_ROOT"/dist/auth-server/
-nvm run server.js
+nvm run node server.js
