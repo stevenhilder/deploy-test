@@ -1,4 +1,4 @@
-FROM 474723000929.dkr.ecr.eu-south-1.amazonaws.com/dummy-webserver-project/build-container:latest AS build-container
+FROM 474723000929.dkr.ecr.eu-south-1.amazonaws.com/dummy-webserver-project/build-container:3.0.1 AS build-container
 
 FROM docker.io/library/ubuntu:22.04
 COPY [ ".", "/var/www/" ]
