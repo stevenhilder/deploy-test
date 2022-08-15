@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-source "$HOME"/.nvm/nvm.sh
-PROJECT_ROOT="$( realpath "$( dirname "$0" )"/../ )"
-cd "$PROJECT_ROOT"/dist/auth-server/
-nvm run node server.js

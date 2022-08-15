@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"allowUmdGlobalAccess": false,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"alwaysStrict": true,
+		"composite": false,
+		"declaration": false,
+		"declarationMap": false,
+		"esModuleInterop": false,
+		"exactOptionalPropertyTypes": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "dist",
+		"strict": true,
+		"strictBindCallApply": true,
+		"strictFunctionTypes": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"target": "es2022",
+		"useUnknownInCatchVariables": false
+	},
+	"include": [
+		"src/**/*.ts"
+	]
+}
