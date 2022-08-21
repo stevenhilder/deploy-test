@@ -12,7 +12,7 @@ const server: http.Server = http.createServer((request: http.IncomingMessage, re
 
 	const matches: RegExpMatchArray | null = /^\/profile\/(\d+)$/.exec(request.url as string);
 	if (matches !== null) {
-		const duration: number = parseInt(matches[0]);
+		const duration: number = parseInt(matches[0] as string);
 		const profiler: Profiler = new Profiler;
 		profiler.start().then(
 			(): void => void setTimeout(
